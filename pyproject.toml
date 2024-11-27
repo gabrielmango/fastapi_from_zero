@@ -17,12 +17,12 @@ taskipy = "^1.14.1"
 
 [tool.taskipy.tasks]
 run = "fastapi dev fastapi_from_zero/app.py"
-pre_test = "task lint && task format"
+pre_test = "task format && task lint"
 test = "pytest --cov=fastapi_from_zero -vv"
 post_test = "coverage html"
 format = "ruff check . --fix && ruff format ."
 lint = "ruff check . && ruff check . --diff"
-commit = "git add . && git status && git commit -m '{msg}' && git push"
+commit = "task test && git add . && git status && git commit -m '{msg}' && git push"
 
 [tool.coverage.run]
 source = ['fastapi_from_zero']
