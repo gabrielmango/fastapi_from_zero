@@ -22,7 +22,7 @@ test = "pytest --cov=fastapi_from_zero -vv"
 post_test = "coverage html"
 format = "ruff check . --fix && ruff format ."
 lint = "ruff check . && ruff check . --diff"
-commit = "task test && git add . && git status && git commit -m '{msg}' && git push"
+commit = "task test && git add . && git status && git commit -m {msg} && git push"
 
 [tool.coverage.run]
 source = ['fastapi_from_zero']
